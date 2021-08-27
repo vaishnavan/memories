@@ -10,7 +10,7 @@ app.listen((port), () => {
 
 mongoose.connect(process.env.MONGO_URL, err => {
     if(!err){
-        console.log("database connected")
+        console.log("database connected successfully")
     }else{
         console.log(err);
     }
