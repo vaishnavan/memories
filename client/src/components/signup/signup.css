@@ -1,0 +1,9 @@
+.signup_main{
+    padding: 80px;
+}
+
+@media (max-width:600px) {
+    .signup_main{
+        padding: 0;
+    }
+}
