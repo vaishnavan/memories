@@ -126,7 +126,7 @@ const resetPassword = async (req, res) => {
                     subject:"password reset",
                     html:`
                         <p>You requested for password reset</p>
-                        <h5>click on this <a target="_blank" href="http://localhost:3000/reset/${token}">link</a> to reset password</h5>
+                        <h5>click on this <a target="_blank" href="https://memoriescap.netlify.app/${token}">link</a> to reset password</h5>
                     `
                 })
                 res.json({message:"check your email"})
