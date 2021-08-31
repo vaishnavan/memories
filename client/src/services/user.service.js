@@ -6,6 +6,21 @@ const signupAuth = (data) => {
     return axios.post(`${API_URL}/signup`, data);
 }
 
+const signinAuth = (data) => {
+    return axios.post(`${API_URL}/signin`, data);
+}
+
+const forgotPass = (data) => {
+    return axios.post(`${API_URL}/resetpass`, data);
+}
+
+const newPass = (data) => {
+    return axios.post(`${API_URL}/newpassword`, data);
+}
+
 export {
-    signupAuth
+    signupAuth,
+    signinAuth,
+    forgotPass,
+    newPass,
 }

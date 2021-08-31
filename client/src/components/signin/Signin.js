@@ -12,10 +12,10 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from 'react-router-dom';
-import { signupAuth } from '../../services/user.service';
+import "./signin.css";
+import { signinAuth } from '../../services/user.service';
 import { toast } from 'react-toastify';
-import "./signup.css";
+import { useHistory } from 'react-router-dom';
 
 
 function Copyright() {
@@ -63,12 +63,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const initialstate = {
-  username:"",
   email:"",
   password:"",
 }
 
-export default function Signup() {
+export default function Signin() {
   const classes = useStyles();
 
   let history = useHistory();
@@ -85,15 +84,17 @@ export default function Signup() {
   const handleSubmit = (e) => {
     console.log("hello")
     e.preventDefault();
-    signupAuth(userDetail)
+    signinAuth(userDetail)
     .then((res) => {
+      localStorage.setItem("auth", JSON.stringify(res.data))
       setUserDetail(initialstate);
-      history.push("/signin")
+      history.push("/home")
     })
     .catch((err) => {
       toast.error(err.response.data.message)
     })
   }
+
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -105,22 +106,9 @@ export default function Signup() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign Up
+            Sign In
           </Typography>
           <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
-              autoFocus
-              value={userDetail.username}
-              onChange={handleChange}
-            />
             <TextField
               variant="outlined"
               margin="normal"
@@ -158,17 +146,17 @@ export default function Signup() {
               className={classes.submit}
               onClick={handleSubmit}
             >
-              Sign Up
+              Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                {/* <Link href="#" variant="body2">
+                <Link href="/forgot" variant="body2">
                   Forgot password?
-                </Link> */}
+                </Link>
               </Grid>
               <Grid item>
-                <Link href="/signin" variant="body2">
-                  {"Already have a account? Sign In"}
+                <Link href="/signup" variant="body2">
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>

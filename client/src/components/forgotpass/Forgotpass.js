@@ -3,8 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -12,10 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from 'react-router-dom';
-import { signupAuth } from '../../services/user.service';
+import { forgotPass } from '../../services/user.service';
 import { toast } from 'react-toastify';
-import "./signup.css";
 
 
 function Copyright() {
@@ -63,15 +59,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const initialstate = {
-  username:"",
   email:"",
-  password:"",
 }
 
-export default function Signup() {
+export default function Forgetpass() {
   const classes = useStyles();
 
-  let history = useHistory();
+//   let history = useHistory();
 
   const [userDetail, setUserDetail] = useState(initialstate);
 
@@ -85,15 +79,21 @@ export default function Signup() {
   const handleSubmit = (e) => {
     console.log("hello")
     e.preventDefault();
-    signupAuth(userDetail)
+    const mydata = {
+        email:userDetail.email
+    }
+    forgotPass(mydata)
     .then((res) => {
-      setUserDetail(initialstate);
-      history.push("/signin")
+        toast.success("check your mail")
+        setUserDetail({
+            email:""
+        })
     })
     .catch((err) => {
       toast.error(err.response.data.message)
     })
   }
+
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -105,22 +105,9 @@ export default function Signup() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign Up
+            Forgot Password
           </Typography>
           <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
-              autoFocus
-              value={userDetail.username}
-              onChange={handleChange}
-            />
             <TextField
               variant="outlined"
               margin="normal"
@@ -134,23 +121,6 @@ export default function Signup() {
               value={userDetail.email}
               onChange={handleChange}
             />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={userDetail.password}
-              onChange={handleChange}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Button
               fullWidth
               variant="contained"
@@ -158,7 +128,7 @@ export default function Signup() {
               className={classes.submit}
               onClick={handleSubmit}
             >
-              Sign Up
+              SEND
             </Button>
             <Grid container>
               <Grid item xs>
@@ -168,7 +138,7 @@ export default function Signup() {
               </Grid>
               <Grid item>
                 <Link href="/signin" variant="body2">
-                  {"Already have a account? Sign In"}
+                  {"<< Back"}
                 </Link>
               </Grid>
             </Grid>
