@@ -6,6 +6,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 require("dotenv").config();
 
+//heroku cmd git push heroku HEAD:main
+
 //middleware
 app.use(cors());
 app.use(express.json());
