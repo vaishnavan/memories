@@ -88,11 +88,11 @@ export default function Resetpass() {
     }
     newPass(mydata)
     .then((res) => {
-        toast.success("password updated successfully")
         setUserDetail({
             password:""
         })
         history.push("/signin")
+        toast.success("password updated successfully")
     })
     .catch((err) => {
       toast.error(err.response.data.message)

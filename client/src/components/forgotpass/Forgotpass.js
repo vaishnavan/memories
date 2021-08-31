@@ -84,10 +84,10 @@ export default function Forgetpass() {
     }
     forgotPass(mydata)
     .then((res) => {
-        toast.success("check your mail")
         setUserDetail({
             email:""
         })
+        toast.success("check your mail")
     })
     .catch((err) => {
       toast.error(err.response.data.message)

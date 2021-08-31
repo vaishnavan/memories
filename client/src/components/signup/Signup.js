@@ -89,6 +89,7 @@ export default function Signup() {
     .then((res) => {
       setUserDetail(initialstate);
       history.push("/signin")
+      toast.success("SignedUp Successfully")
     })
     .catch((err) => {
       toast.error(err.response.data.message)
