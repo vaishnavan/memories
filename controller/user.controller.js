@@ -79,15 +79,15 @@ const userSignin = async (req, res) => {
         const token = jwt.sign({_id:user._id}, process.env.JWT_SUSPENSE, {expiresIn:"8h"});
 
          //email login sccuessfull message
-         transport.sendMail({
-            to: user.email,
-            from: process.env.EMAIL,
-            subject: "Logged In Successfully",
-            html:`
-                <h3>You are Logged In</h3>
-                <p>Login experies in one day time interval</p>
-            `
-        })
+        //  transport.sendMail({
+        //     to: user.email,
+        //     from: process.env.EMAIL,
+        //     subject: "Logged In Successfully",
+        //     html:`
+        //         <h3>You are Logged In</h3>
+        //         <p>Login experies in one day time interval</p>
+        //     `
+        // })
 
         const {_id, username, email} = user
         return res.status(200).json({
