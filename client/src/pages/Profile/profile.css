@@ -1,0 +1,31 @@
+.profile-Card-main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    border: 1px solid rgb(199, 199, 199);
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.profile-table button{
+    text-align: center;
+    padding: 5px 10px;
+    width: 100px;
+    border: 1px solid rgb(50, 101, 204);
+    background-color: #400CCC;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .profile-Card-main{
+        width: 300px;
+    }
+    .profile-image img{
+        width: 300px;
+        height: auto ;
+    }
+}

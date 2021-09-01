@@ -89,6 +89,7 @@ export default function Signin() {
       localStorage.setItem("auth", JSON.stringify(res.data))
       setUserDetail(initialstate);
       history.push("/home")
+      window.location.reload();
       toast.success("Logged In Successfully")
     })
     .catch((err) => {
