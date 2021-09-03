@@ -7,7 +7,7 @@ import "./profile.css";
 export default function Profile() {
     const [userDisplay, setUserDisplay] = useState({});
     const {userLocData} = useContext(myContext);
-    console.log(userLocData);
+    // console.log(userLocData);
     
 
     useEffect(() => {

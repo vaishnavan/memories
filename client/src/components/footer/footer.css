@@ -1,0 +1,58 @@
+.footer_content{
+    text-align: center;
+}
+.footer_main{
+    padding: 50px;
+}
+.footer_Icons{
+    text-align: center;
+    padding: 20px 0;
+}
+.footer_Icons span{
+    margin: 0 5px;
+}
+.footer_Icons .footer_git a{
+    color: rgb(83, 82, 83);
+    transform: scale(1);
+    transition: 0.5s;
+}
+.footer_Icons .footer_link a{
+    color: rgba(160, 126, 64, 0.586);
+    transform: scale(1);
+    transition: 0.5s;
+}
+.footer_Icons .footer_insta a{
+    color: rgb(173, 115, 125);
+    transform: scale(1);
+    transition: 0.5s;
+}
+.footer_Icons .footer_wht a{
+    color: rgba(59, 95, 59, 0.958);
+    transform: scale(1);
+    transition: 0.5s;
+}
+.footer_Icons .footer_twi a{
+    color: rgb(39, 145, 202);
+    transform: scale(1);
+    transition: 0.5s;
+}
+.footer_Icons .footer_git a:hover{
+    color: rgb(196, 191, 191);
+    transform: scale(1.2);
+}
+.footer_Icons .footer_link a:hover{
+    color: orange;
+    transform: scale(1.2);
+}
+.footer_Icons .footer_insta a:hover{
+    color: rosybrown;
+    transform: scale(1.2);
+}
+.footer_Icons .footer_wht a:hover{
+    color: green;
+    transform: scale(1.2);
+}
+.footer_Icons .footer_twi a:hover{
+    color: lightblue;
+    transform: scale(1.2);
+}

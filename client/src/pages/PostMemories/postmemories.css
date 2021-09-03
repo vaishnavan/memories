@@ -1,0 +1,33 @@
+.postform{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(231, 230, 230, 0.667);
+    padding: 10px 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.post-input{
+    padding: 10px;
+}
+
+.post-input input{
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #400CCC;
+}
+
+.post-input input:hover{
+    border: 1px solid #400CCC;
+    box-shadow: 0 0 5px #400CCC;
+}
+.post-heading h3{
+    text-align: center;
+    color:  #400CCC;
+}
+.card-postdate{
+    display: flex;
+    align-items: center;
+}

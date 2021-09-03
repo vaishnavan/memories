@@ -68,7 +68,7 @@ import {
   }));
   
   export default function Header() {
-    const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+    const { header, menuButton, toolbar, drawerContainer } = useStyles();
   
     const [state, setState] = useState({
       mobileView: false,
@@ -164,9 +164,13 @@ import {
     };
   
     const femmecubatorLogo = (
-      <Typography variant="h6" component="h1" className={logo}>
-        Memories
-      </Typography>
+      <div className="logo-url">
+        <RouterLink  to="/">
+        <Typography>
+          Memories
+        </Typography>
+      </RouterLink>
+      </div>
     );
   
     const getMenuButtons = () => {

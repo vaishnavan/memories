@@ -90,7 +90,7 @@ export default function Signin() {
       setUserDetail(initialstate);
       toast.success("logged in successfully")
       setTimeout(() => {
-        history.push("/home")
+        history.push("/")
         window.location.reload();
       }, 2000)
     })
