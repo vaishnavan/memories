@@ -86,7 +86,11 @@ export default function ShowMemories() {
                 />
             </div>
             :
-            <div className="show-main" style={{marginTop:"80px"}}>
+            <>
+            <div className="show-result-count" style={{marginTop:"80px",marginLeft:"10px"}}>
+                <h3>Post Count: {showData.length}</h3>
+            </div>
+            <div className="show-main">
             {showData.sort((a,b) => a._id < b._id ? 1:-1).map((data) => {
                 return(
                     <div className="show-card" key={data._id}>
@@ -128,6 +132,7 @@ export default function ShowMemories() {
                 )
             })}
             </div>
+            </>
           }
         </div>
     )

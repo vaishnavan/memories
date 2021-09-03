@@ -40,9 +40,19 @@ const getUnlike = (id) => {
     })
 }
 
+const getMypost = () => {
+    return axios.get(`${API_URL}/mypost`, {
+        medthod:"GET",
+            headers:{
+                "authorization":getData.token
+            }
+    })
+}
+
 export {
     postUpload,
     getPost,
     getLike,
-    getUnlike
+    getUnlike,
+    getMypost
 }

@@ -12,6 +12,7 @@ import {
   import MenuIcon from "@material-ui/icons/Menu";
   import React, { useState, useEffect } from "react";
   import { Link as RouterLink } from "react-router-dom";
+  import FavoriteIcon from '@material-ui/icons/Favorite';
   import './header.css';
   
   const headersData = [
@@ -167,7 +168,14 @@ import {
       <div className="logo-url">
         <RouterLink  to="/">
         <Typography>
-          Memories
+          <div className="logo-heart">
+            <div>
+            Memories 
+            </div>
+            <div style={{marginLeft:"3px"}}>
+              <FavoriteIcon style={{ fill: 'red' }} />
+            </div>
+          </div>
         </Typography>
       </RouterLink>
       </div>

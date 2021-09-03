@@ -1,12 +1,13 @@
 .profile-Card-main{
-    position: absolute;
-    top: 50%;
+    /* position: absolute;   */
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
+    transform: translate(-50%, -50%); */
+    margin: 100px auto;
+    width: 350px;
     border: 1px solid rgb(199, 199, 199);
     text-align: center;
-    padding: 20px;
+    padding: 12px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 .profile-table button{
@@ -18,6 +19,18 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+
+.card-profile-title{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.card-profile-title img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 @media (max-width:600px) {
