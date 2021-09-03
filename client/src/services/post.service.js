@@ -22,7 +22,27 @@ const getPost = () => {
     });
 }
 
+const getLike = (id) => {
+    return axios.put(`${API_URL}/like`, id, {
+        medthod:"put",
+        headers:{
+            "authorization":getData.token
+        }
+    })
+}
+
+const getUnlike = (id) => {
+    return axios.put(`${API_URL}/unlike`, id, {
+        medthod:"put",
+        headers:{
+            "authorization":getData.token
+        }
+    })
+}
+
 export {
     postUpload,
-    getPost
+    getPost,
+    getLike,
+    getUnlike
 }

@@ -38,6 +38,17 @@ router.get("/allpost", auth , async(req, res) => {
     }
 })
 
+router.get('/mypost', auth, (req, res) => {
+    Post.find({postedBy: req.user._id})
+    .populate("postedBy","_id username")
+    .then(mypost=>{
+        res.json({mypost})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
 router.put('/like', auth, (req, res) => {
     Post.findByIdAndUpdate(req.body.postId, {
         $push:{likes:req.user._id}

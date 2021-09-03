@@ -1,23 +1,76 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from '../../components/Navbar/Header';
-import { getPost } from '../../services/post.service';
+import { getLike, getPost, getUnlike } from '../../services/post.service';
 import {AccessAlarm} from '@material-ui/icons'
 import Loader from "react-loader-spinner";
 import moment from 'moment';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import './showmemories.css';
+import { myContext } from '../../context';
 
 export default function ShowMemories() {
     const [showData, setShowData] = useState([]);
     const [show, setShow] = useState(true);
 
+    const {userLocData} = useContext(myContext);
+    console.log(userLocData);
+
     useEffect(() => {
-        setShow(true)
+        handleGetPost();
+    }, [])
+
+    const handleGetPost = () => {
         getPost().then((res) => {
             // console.log(res.data);
             setShowData(res.data);
             setShow(false)
         })
-    }, [])
+    }
+
+    const likeData = (id) => {
+        const postData = {
+            postId:id
+        }
+        getLike(postData)
+        .then((res) => {
+            // setShow(true)
+            const newData = showData.map(item => {
+                if(item._id === res._id){
+                    return res
+                }else{
+                    return item
+                }
+            })
+            handleGetPost();
+            setShowData(newData)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+
+    const unlikeData = (id) => {
+        const postData = {
+            postId:id
+        }
+        getUnlike(postData)
+        .then((res) => {
+            // setShow(true)
+            const newData = showData.map(item => {
+                if(item._id === res._id){
+                    return res
+                }else{
+                    return item
+                }
+            })
+            handleGetPost();
+            setShowData(newData)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
 
     return (
         <div>
@@ -51,9 +104,25 @@ export default function ShowMemories() {
                                 <p style={{marginLeft:"10px"}}>{data.desc}</p>
                             </div>
                         </div>
-                        <div className="card-postdate">
-                            <div><AccessAlarm /> </div>
-                            <div style={{marginLeft:"10px"}}>{moment(data.createdAt).format("lll")}</div>
+                        <div className="card-postdatemain">
+                            <div className="card-postdate">
+                                <div><AccessAlarm /> </div>
+                                <div style={{marginLeft:"10px"}}>{moment(data.createdAt).format("lll")}</div>
+                            </div>
+                            <div>
+                                {data.likes.includes(userLocData.user._id) ?
+                                <>
+                                    <FavoriteIcon style={{ fill: 'red' }}  onClick={()=> unlikeData(data._id)} />
+                                    <span className="mt-2">{data.likes.length}</span>
+                                </>
+                                :
+                                <>
+                                  <FavoriteBorderIcon onClick={() => likeData(data._id)} />
+                                  <span className="mt-2">{data.likes.length}</span>
+                                </>
+                                
+                                }
+                            </div>
                         </div>
                     </div>
                 )
