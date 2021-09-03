@@ -10,6 +10,7 @@ import Forgetpass from './components/forgotpass/Forgotpass';
 import Resetpass from './components/resetpass/Resetpass';
 import DataProvider from './context';
 import Profile from './pages/Profile/Profile';
+import ShowMemories from './pages/ShowMemories/ShowMemories';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
             <Producted exact path="/" component={Home} />
             <Producted exact path="/home" component={Home} />
             <Producted exact path="/profile" component={Profile} />
+            <Producted exact path="/showmemories" component={ShowMemories} />
           </Switch>
         </Router>
       </DataProvider>

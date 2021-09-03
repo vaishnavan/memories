@@ -31,7 +31,7 @@ router.post("/uploadData", auth, upload.single("image"), async (req, res) => {
 
 router.get("/allpost", auth , async(req, res) => {
     try {
-        const myData = await Post.find();
+        const myData = await Post.find().populate("postedBy","_id name");
         return res.status(200).json(myData);
     } catch (error) {
         return  res.status(404).json({message:error.message})
