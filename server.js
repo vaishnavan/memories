@@ -15,15 +15,16 @@ app.use(express.json());
 
 //routes
 app.use("/auth/api", require("./route/user.route"));
+app.use("/api/v1", require("./controller/post.controller"));
 
 
 app.listen((port), () => {
     console.log(`server up and running on port ${port}`);  
 })
 
-app.use("/", (req, res) => {
-    res.json({message:"Memories API creation"})
-})
+// app.use("/", (req, res) => {
+//     res.json({message:"Memories API creation"})
+// })
 
 mongoose.connect(process.env.MONGO_URL, err => {
     if(!err){

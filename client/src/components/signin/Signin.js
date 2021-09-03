@@ -88,9 +88,11 @@ export default function Signin() {
     .then((res) => {
       localStorage.setItem("auth", JSON.stringify(res.data))
       setUserDetail(initialstate);
-      history.push("/home")
-      window.location.reload();
-      toast.success("Logged In Successfully")
+      toast.success("logged in successfully")
+      setTimeout(() => {
+        history.push("/home")
+        window.location.reload();
+      }, 2000)
     })
     .catch((err) => {
       toast.error(err.response.data.message)

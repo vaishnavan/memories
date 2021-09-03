@@ -28,7 +28,7 @@ export default function Profile() {
             <Header />
             <div className="profile-Card-main">
                 <div className="profile-image">
-                    <img src="https://lh3.googleusercontent.com/proxy/5yjFJQR-GxtSumhWRp2djTZTRywe4cT4FWPfp-jkldf8X3I2lUwOMs87XcPB2XsBKVLop_4dNjIP77yhH8QZBd4fVfBE3RfL47dMjYajEJb-_WnjxucYdxzxeaXIB5C80Ia2eAjDm8yH8HJA_J-EhcZ3wNDeCViA5DsktA" alt="no" />
+                    <img width="100%" src="https://kacrm.datamaticsbpm.com/assets/img/user-img-icon.png" alt="no" />
                 </div>
                 <hr />
                 <div className="profile-table">
